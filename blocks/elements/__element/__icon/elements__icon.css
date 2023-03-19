@@ -1,0 +1,11 @@
+.elements__icon {
+  margin: 0;
+  width: 22px;
+  height: 19px;
+  align-self: flex-end;
+}
+
+.elements__icon:hover {
+  background-image: url('../../../../images/Union.svg');
+  cursor: pointer;
+}
