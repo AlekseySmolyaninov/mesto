@@ -3,11 +3,13 @@ const popupCloseButtonElement = popupElement.querySelector('.popup__close');
 const popupOpenButtonElement = document.querySelector('.profile__button');
 
 const openPopup = function () {
-  popupElement.classList.add('popup_is-opened');
+  popupElement.classList.add('popup_opened');
+  popupUserName.value = userName.textContent;
+popupUserJob.value = userJob.textContent;
 };
 
 const closePopup = function () {
-  popupElement.classList.remove('popup_is-opened');
+  popupElement.classList.remove('popup_opened');
 };
 
 // togglePopupVisibility();
@@ -20,22 +22,22 @@ let userJob = document.querySelector('.profile__profession'); // професс�
 let popupUserName = document.querySelector('.popup__name');
 let popupUserJob = document.querySelector('.popup__profession');
 
-popupUserName.value = userName.textContent;
-popupUserJob.value = userJob.textContent;
 
-const submit = document.querySelector('popup__button'); // нахожу кнопку "сохранить"
+
+
 
 let formElement = document.querySelector('.popup__form');
-let nameInput = formElement.querySelector('.popup__name'); // имя с попап окна
-let jobInput = formElement.querySelector('.popup__profession'); // профессия с попап окна
+
+let nameInput = popupUserName; // имя с попап окна
+let jobInput = popupUserJob; // профессия с попап окна
 
 function handleFormSubmit(evt) {
   evt.preventDefault();
-  const userNameNew = nameInput.value; // значение элемента из попап окна кладу в переменную
-  const userJobNew = jobInput.value;
+  
 
-  userName.textContent = userNameNew; // значение элемента с главной страницы заменяю на новый текст
-  userJob.textContent = userJobNew;
+  userName.textContent = nameInput.value; // значение элемента с главной страницы заменяю на новый текст
+  userJob.textContent = jobInput.value;
+  closePopup();
 }
 
 formElement.addEventListener('submit', handleFormSubmit); // вешаю событие на форму

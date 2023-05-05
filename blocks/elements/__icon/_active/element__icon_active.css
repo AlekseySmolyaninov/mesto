@@ -1,0 +1,4 @@
+.elements__icon_active:hover {
+    background-image: url('../../../../images/Union.svg');
+    cursor: pointer;
+  }

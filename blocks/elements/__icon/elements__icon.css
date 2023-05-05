@@ -7,5 +7,6 @@
 
 .elements__icon:hover {
   background-image: url('../../../../images/Union.svg');
+  opacity: 0,6;
   cursor: pointer;
 }
