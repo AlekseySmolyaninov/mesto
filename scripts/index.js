@@ -19,8 +19,8 @@ popupCloseButtonElement.addEventListener('click', closePopup);
 const userName = document.querySelector('.profile__name'); // 'имя с главной страницы
 let userJob = document.querySelector('.profile__profession'); // профессия с главной страницы
 
-let popupUserName = document.querySelector('.popup__name');
-let popupUserJob = document.querySelector('.popup__profession');
+let popupUserName = document.querySelector('.popup__input_value_name');
+let popupUserJob = document.querySelector('.popup__input_value_profession');
 
 
 
@@ -28,15 +28,12 @@ let popupUserJob = document.querySelector('.popup__profession');
 
 let formElement = document.querySelector('.popup__form');
 
-let nameInput = popupUserName; // имя с попап окна
-let jobInput = popupUserJob; // профессия с попап окна
-
 function handleFormSubmit(evt) {
   evt.preventDefault();
   
 
-  userName.textContent = nameInput.value; // значение элемента с главной страницы заменяю на новый текст
-  userJob.textContent = jobInput.value;
+  userName.textContent = popupUserName.value; // значение элемента с главной страницы заменяю на новый текст
+  userJob.textContent = popupUserJob.value;
   closePopup();
 }
 

@@ -10,7 +10,7 @@
   <body class="page">
     <header class="header">
       <img src="./images/Vector.svg" alt="Логотип" class="header__logo" />
-      <div class="header__line"></div>
+      
     </header>
     <main>
       <section class="profile">
@@ -19,7 +19,7 @@
           <div class="profile__info">
             <div class="profile__name-and-button">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
-              <img class="profile__button" type="button" src="./images/EditButton.svg" alt="Кнопка добавить" />
+              <button class="profile__button" type="button" ></button>
             </div>
             <p class="profile__profession">Исследователь океана</p>
           </div>
@@ -33,42 +33,42 @@
           <img class="elements__image" src="./images/Karachaevsk.jpg" alt="картинка" />
           <div class="elements__title">
             <h2 class="elements__text">Карачаевск</h2>
-            <img class="elements__icon" src="./images/Group.svg" alt="иконка" />
+            <button class="elements__icon" type="button" aria-label="Сердце"></button>
           </div>
         </div>
         <div class="elements__element">
           <img class="elements__image" src="./images/Elbrus.jpg" alt="картинка" />
           <div class="elements__title">
             <h2 class="elements__text">Гора Эльбрус</h2>
-            <img class="elements__icon" src="./images/Group.svg" alt="иконка" />
+            <button class="elements__icon" type="button" aria-label="Сердце"></button>
           </div>
         </div>
         <div class="elements__element">
           <img class="elements__image" src="./images/Dombai.jpg" alt="картинка" />
           <div class="elements__title">
             <h2 class="elements__text">Домбай</h2>
-            <img class="elements__icon" src="./images/Group.svg" alt="иконка" />
+            <button class="elements__icon" type="button" aria-label="Сердце"></button>
           </div>
         </div>
         <div class="elements__element">
           <img class="elements__image" src="./images/Elbrus.jpg" alt="картинка" />
           <div class="elements__title">
             <h2 class="elements__text">Гора Эльбрус</h2>
-            <img class="elements__icon" src="./images/Group.svg" alt="иконка" />
+            <button class="elements__icon" type="button" aria-label="Сердце"></button>
           </div>
         </div>
         <div class="elements__element">
           <img class="elements__image" src="./images/Dombai.jpg" alt="картинка" />
           <div class="elements__title">
             <h2 class="elements__text">Домбай</h2>
-            <img class="elements__icon" src="./images/Group.svg" alt="иконка" />
+            <button class="elements__icon" type="button" aria-label="Сердце"></button>
           </div>
         </div>
         <div class="elements__element">
           <img class="elements__image" src="./images/Karachaevsk.jpg" alt="картинка" />
           <div class="elements__title">
             <h2 class="elements__text">Карачаево-Что там</h2>
-            <img class="elements__icon" src="./images/Group.svg" alt="иконка" />
+            <button class="elements__icon" type="button" aria-label="Сердце"></button>
           </div>
         </div>
       </section>
@@ -78,16 +78,16 @@
     </main>
     <section class="popup">
       <div class="popup__container">
-        <img class="popup__close" src="./images/CloseIcon.svg" alt="Кнопка закрытия окна" />
+        <button class="popup__close" type="button" aria-label="Закрыть"></button>
 
         <div class="popup__content">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="popup__form">
-            <input class="popup__name" type="text" name="username" />
-            <hr class="popup__line" />
-            <input class="popup__profession" type="text" name="username" />
+          <form class="popup__form" name="informationaboutuser">
+            <input class="popup__input popup__input_value_name" type="text" name="username" placeholder="Введите имя" required/>
+           
+            <input class="popup__input popup__input_value_profession" type="text" name="username" placeholder="Введите профессию" required/>
 
-            <hr class="popup__line" />
+        
             <button type="submit" class="popup__button">Сохранить</button>
           </form>
         </div>

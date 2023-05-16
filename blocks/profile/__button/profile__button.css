@@ -1,7 +1,13 @@
 .profile__button {
+  background-image: url('../../../images/EditButton.svg');
+  background-color: black;
+  background-repeat: no-repeat;
+  border: 0;
   width: 24px;
   height: 24px;
-  padding-left: 25px;
+  padding-left: 0;
+  margin-left: 25px;
+  background-size: contain;
 }
 
 .profile__button:hover {
@@ -13,5 +19,6 @@
   .profile__button {
     width: 18px;
     height: 18px;
+    margin-left: 10px;
   }
 }
