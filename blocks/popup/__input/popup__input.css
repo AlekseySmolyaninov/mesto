@@ -11,8 +11,8 @@
   width: 358px;
   margin-bottom: 30px;
   padding-bottom: 10px;
-  text-overflow: ellipsis; 
-  white-space: nowrap; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
   overflow: hidden;
 }
 
@@ -21,7 +21,5 @@
     max-width: 238px;
     margin-bottom: 25px;
   padding-bottom: 10px;
-
-    
   }
 }
