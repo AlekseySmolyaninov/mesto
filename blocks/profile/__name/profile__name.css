@@ -23,9 +23,6 @@
     font-size: 27px;
     line-height: 33px;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     max-width: 189px;
   }
 }
