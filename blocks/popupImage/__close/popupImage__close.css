@@ -9,6 +9,11 @@
     top: -35px;
 }
 
+.popupImage__close:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 520px) {
   .popupImage__close {
     background-image: url('../../../images/CloseIconMobile.svg');
