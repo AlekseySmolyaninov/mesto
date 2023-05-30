@@ -1,0 +1,14 @@
+.popupAdd__content {
+    padding-left: 36px;
+  width: 430px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 520px) {
+  .popupAdd__content {
+    padding-left: 22px;
+    width: 282px;
+    
+  }
+}

@@ -28,50 +28,17 @@
         <button class="profile__button-add" type="button">
       </button>
       </section>
-      <section class="elements">
+      <template class="elements">
         <div class="elements__element">
-          <img class="elements__image" src="./images/Karachaevsk.jpg" alt="картинка" />
+          <img class="elements__image" alt="картинка" />
+          <button class="elements__basket" type="button" aria-label="Корзина"></button>
           <div class="elements__title">
-            <h2 class="elements__text">Карачаевск</h2>
+            <h2 class="elements__text"></h2>
             <button class="elements__icon" type="button" aria-label="Сердце"></button>
           </div>
         </div>
-        <div class="elements__element">
-          <img class="elements__image" src="./images/Elbrus.jpg" alt="картинка" />
-          <div class="elements__title">
-            <h2 class="elements__text">Гора Эльбрус</h2>
-            <button class="elements__icon" type="button" aria-label="Сердце"></button>
-          </div>
-        </div>
-        <div class="elements__element">
-          <img class="elements__image" src="./images/Dombai.jpg" alt="картинка" />
-          <div class="elements__title">
-            <h2 class="elements__text">Домбай</h2>
-            <button class="elements__icon" type="button" aria-label="Сердце"></button>
-          </div>
-        </div>
-        <div class="elements__element">
-          <img class="elements__image" src="./images/Elbrus.jpg" alt="картинка" />
-          <div class="elements__title">
-            <h2 class="elements__text">Гора Эльбрус</h2>
-            <button class="elements__icon" type="button" aria-label="Сердце"></button>
-          </div>
-        </div>
-        <div class="elements__element">
-          <img class="elements__image" src="./images/Dombai.jpg" alt="картинка" />
-          <div class="elements__title">
-            <h2 class="elements__text">Домбай</h2>
-            <button class="elements__icon" type="button" aria-label="Сердце"></button>
-          </div>
-        </div>
-        <div class="elements__element">
-          <img class="elements__image" src="./images/Karachaevsk.jpg" alt="картинка" />
-          <div class="elements__title">
-            <h2 class="elements__text">Карачаево-Что там</h2>
-            <button class="elements__icon" type="button" aria-label="Сердце"></button>
-          </div>
-        </div>
-      </section>
+        
+      </template>
       <footer class="footer">
         <h2 class="footer__text">© 2020 Mesto Russia</h2>
       </footer>
@@ -93,6 +60,30 @@
         </div>
       </div>
     </section>
+    <section class="popupAdd">
+      <div class="popupAdd__container">
+        <button class="popupAdd__close" type="button" aria-label="Закрыть"></button>
+        <div class="popupAdd__content">
+          <h2 class="popupAdd__title">Новое место</h2>
+          <form class="popupAdd__form" name="informationaboutuser">
+            <input class="popupAdd__input popupAdd__input_value_name" type="text" name="username" placeholder="Название" required/>
+           
+            <input class="popupAdd__input popupAdd__input_value_link" type="url" name="username" placeholder="Ссылка на картинку" required/>
+
+        
+            <button type="submit" class="popupAdd__button">Сохранить</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    
+    <section class="popupImage">
+      <div class="popupImage__content">
+      <img class="popupImage__image" alt="картинка">
+      <h2 class="popupImage__text"></h2>
+      <button class="popupImage__close" type="button" aria-label="Закрыть"></button>
+    </div>
+    </ыус>
     <script src="./scripts/index.js"></script>
   </body>
 </html>

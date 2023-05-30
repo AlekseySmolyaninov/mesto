@@ -1,0 +1,21 @@
+.popupImage__close {
+    background-image: url('../../../images/CloseIcon.svg');
+  border: 0;
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  right: -40px;
+    top: -35px;
+}
+
+@media screen and (max-width: 520px) {
+  .popupImage__close {
+    background-image: url('../../../images/CloseIconMobile.svg');
+    width: 20px;
+    height: 20px;
+    right: -25px;
+    top: -25px;
+    object-fit: contain;
+  }
+}

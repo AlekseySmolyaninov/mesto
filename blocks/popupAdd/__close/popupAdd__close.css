@@ -1,0 +1,25 @@
+.popupAdd__close {
+    background-image: url('../../../images/CloseIcon.svg');
+    border: 0;
+    background-color: transparent;
+    width: 32px;
+    height: 32px;
+  
+    position: fixed;
+    transform: translate(237px, -188px);
+  }
+  
+  .popupAdd__close:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 520px) {
+    .popupAdd__close {
+      background-image: url('../../../images/CloseIconMobile.svg');
+      width: 20px;
+      height: 20px;
+      transform: translate(130px, -185px);
+      object-fit: contain;
+    }
+  }
