@@ -1,4 +1,4 @@
-const profilePopup = document.querySelector('.popup');
+const profilePopup = document.querySelector('.popup__profile');
 const popupCloseButtonElement = profilePopup.querySelector('.popup__close');
 const popupOpenButtonElement = document.querySelector('.profile__button');
 
@@ -35,7 +35,7 @@ function handleFormSubmit(evt) {
 
   userName.textContent = popupUserName.value; // значение элемента с главной страницы заменяю на новый текст
   userJob.textContent = popupUserJob.value;
-  closePopup();
+  closePopup(profilePopup);
 }
 
 formElement.addEventListener('submit', handleFormSubmit); // вешаю событие на форму
@@ -102,7 +102,7 @@ function createCard(text, imageURL) {
   
   const image = newCard.querySelector('.elements__image');
   image.src = imageURL;
-  image.alt = 'Картинка';
+  image.alt = text;
   
 const deleteButton = newCard.querySelector('.elements__basket');
 deleteButton.addEventListener('click', function (event) {
@@ -113,7 +113,7 @@ deleteButton.addEventListener('click', function (event) {
 image.addEventListener('click', function(){
   openPopup(popupImage);
   imagePopup.src = image.src;
-  imagePopup.alt = 'Картинка';
+  imagePopup.alt = text;
   textPopup.textContent = text;
 })
 const iconHeart = newCard.querySelector('.elements__icon');
@@ -143,14 +143,15 @@ closePopupAdd.addEventListener('click', function(){  // слушатель на 
 });
 
 const popupAddButton = document.querySelector('.popupAdd__form'); // нахожу кнопку сохранить на форме
+const newNameCard = document.querySelector('.popupAdd__input_value_name'); // данные из формы Название
+const newLinkCard = document.querySelector('.popupAdd__input_value_link'); // ссылка из формы
+
 
 popupAddButton.addEventListener('submit', function (event){   // вешаю событие на кнопку
   event.preventDefault();
-  const newNameCard = document.querySelector('.popupAdd__input_value_name'); // данные из формы Название
-const newLinkCard = document.querySelector('.popupAdd__input_value_link'); // ссылка из формы
-
+  
 const newAddCard = createCard(newNameCard.value, newLinkCard.value);
-console.log(newNameCard);
+
 template.prepend(newAddCard); // добавляю на страницу
 closePopup(openAdd);
 event.target.reset()
