@@ -49,10 +49,12 @@
 
         <div class="popup__content">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="popup__form" name="informationaboutuser">
-            <input class="popup__input popup__input_value_name" type="text" name="username" placeholder="Введите имя" required/>
+          <form id='form' class="popup__form" name="informationaboutuser" novalidate>
+            <input class="popup__input popup__input_value_name" type="text" name="username" placeholder="Введите имя" minlength="2" maxlength="40" required/>
+            <span class="form__input-error">Необходимо добавить текст</span>
            
-            <input class="popup__input popup__input_value_profession" type="text" name="username" placeholder="Введите профессию" required/>
+            <input class="popup__input popup__input_value_profession" type="text" name="username" placeholder="Введите профессию" minlength="2" maxlength="200" required/>
+            <span class="form__input-error">Необходимо добавить текст</span>
 
         
             <button type="submit" class="popup__button">Сохранить</button>
@@ -65,7 +67,7 @@
         <button class="popup__close popupAdd__close" type="button" aria-label="Закрыть"></button>
         <div class="popup__content popupAdd__content">
           <h2 class="popup__title popupAdd__title">Новое место</h2>
-          <form class="popup__form popupAdd__form" name="informationaboutuser">
+          <form class="popup__form popupAdd__form" name="informationaboutuser" novalidate>
             <input class="popup__input popupAdd__input popupAdd__input_value_name" type="text" name="username" placeholder="Название" required/>
            
             <input class="popup__input popupAdd__input popupAdd__input_value_link" type="url" name="username" placeholder="Ссылка на картинку" required/>

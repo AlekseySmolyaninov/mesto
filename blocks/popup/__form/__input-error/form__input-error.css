@@ -1,0 +1,7 @@
+.form__input-error {
+    color: red;
+    margin: 0;
+    padding: 0;
+    display: block;
+    opacity: 0;
+}

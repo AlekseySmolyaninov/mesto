@@ -179,3 +179,39 @@ closeButtonPopupImage.addEventListener('click', function(){
   closePopup(popupImage);
 });
 
+
+
+
+const formProfile = document.querySelector('#form');
+console.log(formProfile);
+const popupInputProfile = formProfile.querySelector('.popup__input');
+console.log(popupInputProfile);
+const formError = document.querySelector('.form__input-error');
+
+const showError = (element) => {
+  formError.textContent = errorMessage;
+  element.classList.add('.popup__input_type_error'); // добавили красную линию
+  formError.classList.add('.popup__input-error'); // добавили текст ошибки
+}
+
+const hideError = (element) => {
+  element.classList.remove('.popup__input_type_error');
+  formError.classList.remove('.popup__input-error');
+}
+const isValid = () => {
+  if (!popupInputProfile.validity.valid) {
+    // Если поле не проходит валидацию, покажем ошибку
+    showError(popupInputProfile, popupInputProfile.validationMessage);
+  } else {
+    // Если проходит, скроем
+    hideError(popupInputProfile);
+  }
+};
+
+formProfile.addEventListener('submit', function (evt) {
+  evt.preventDefault();
+});
+// Вызовем функцию isValid на каждый ввод символа
+popupInputProfile.addEventListener('input', function () {
+  isValid();
+}); 
