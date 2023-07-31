@@ -182,36 +182,136 @@ closeButtonPopupImage.addEventListener('click', function(){
 
 
 
-const formProfile = document.querySelector('#form');
-console.log(formProfile);
-const popupInputProfile = formProfile.querySelector('.popup__input');
-console.log(popupInputProfile);
-const formError = document.querySelector('.form__input-error');
 
-const showError = (element) => {
-  formError.textContent = errorMessage;
-  element.classList.add('.popup__input_type_error'); // добавили красную линию
-  formError.classList.add('.popup__input-error'); // добавили текст ошибки
-}
-
-const hideError = (element) => {
-  element.classList.remove('.popup__input_type_error');
-  formError.classList.remove('.popup__input-error');
-}
-const isValid = () => {
-  if (!popupInputProfile.validity.valid) {
-    // Если поле не проходит валидацию, покажем ошибку
-    showError(popupInputProfile, popupInputProfile.validationMessage);
-  } else {
-    // Если проходит, скроем
-    hideError(popupInputProfile);
-  }
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_invalid',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'form__input-error'
 };
 
-formProfile.addEventListener('submit', function (evt) {
-  evt.preventDefault();
-});
-// Вызовем функцию isValid на каждый ввод символа
-popupInputProfile.addEventListener('input', function () {
-  isValid();
-}); 
+function enableValidation(validationConfig) {
+
+  const showInputError = (form, input) => {
+input.classList.add(validationConfig.inputErrorClass)
+const span = form.querySelector(`#${input.id}-error`)
+span.textContent = input.validationMessage
+span.classList.add(validationConfig.errorClass)
+  }
+
+  const hideInputError = (form, input) => {
+    input.classList.remove(validationConfig.inputErrorClass)
+const span = form.querySelector(`#${input.id}-error`)
+span.textContent = ''
+span.classList.remove(validationConfig.errorClass)
+  }
+
+const isValid = (form, input) => {
+  if (!input.validity.valid) {
+    showInputError(form, input)
+  } else {
+    hideInputError(form, input)
+  }
+}
+
+const hasInvalidValue = (inputs) => {
+return inputs.some(input => !input.validity.valid)
+}
+
+const toggleButtonState = (inputs, button) => {
+if (hasInvalidValue(inputs)) {
+  button.classList.add(validationConfig.inactiveButtonClass)
+  button.disabled = true
+} else {
+  button.classList.remove(validationConfig.inactiveButtonClass)
+  button.disabled = false
+}
+}
+
+const setEventListeners = (form) =>{
+  const inputs = Array.from(form.querySelectorAll(validationConfig.inputSelector))
+const button = form.querySelector(validationConfig.submitButtonSelector)
+
+  
+  toggleButtonState(inputs, button)
+  inputs.forEach(input => {
+    input.addEventListener('input', () => {
+      isValid(form, input)
+      toggleButtonState(inputs, button)
+    })
+  })
+}
+
+  const forms = Array.from(document.querySelectorAll(validationConfig.formSelector));
+  console.log(forms);
+
+  forms.forEach(form => {
+    setEventListeners(form)
+  })
+}
+
+enableValidation(validationConfig);
+
+
+// const enableValidation = ({ formSelector, ...rest}) => {
+//   const forms = Array.from(document.querySelectorAll(formSelector));
+//   console.log(forms);
+//   console.log(rest);
+// forms.forEach(form => {
+//   form.addEventListener('submit', () => {    //отловили событие формы
+//     evt.preventDefault();                           // сказали форме ничего не делать
+//   })
+//   setEventListener(form, rest)
+// })
+
+  
+
+  
+// }
+// const setEventListener = (formProfile, { inputSelector, submitButtonSelector, ...rest }) => {    
+//   const formInputs = Array.from(formProfile.querySelectorAll(inputSelector));
+//   const formButton = formProfile.querySelector(submitButtonSelector)
+//   console.log(rest)
+//   enableButton(formButton, rest)
+//   formInputs.forEach(input => {
+//     input.addEventListener('input', () => { // на каждый инпут накладываем обработчик событий
+//       checkInputValidity(input) 
+//       if (hasInvalidInput(formInputs)) {
+//         disableButton(formButton, rest);
+//       } else {
+//         enableButton(formButton, rest)
+//       } 
+//     })
+//   })
+// }
+
+// const checkInputValidity = (input) => {
+//   const currentInputContainer = document.querySelector(`#${input.id}-error`);
+// if (input.checkValidity()){     //true or false
+//   currentInputContainer.textContent = "";
+// }  else {
+//   currentInputContainer.textContent = input.validationMessage;
+// }
+// }
+
+// const hasInvalidInput = (formInputs) => {
+// return formInputs.some(item => !item.validity.valid)
+// }
+
+
+// const enableButton = (button) => {     //сделать кнопку активной
+//   button.classList.remove('popup__button_invalid');
+//   button.classList.add('popup__button')
+//   button.setAttribute('disabled', true)
+// }
+
+// const disableButton = (button) => {    // сделать неактивной
+//   button.classList.add('popup__button_invalid');
+//   button.classList.remove('popup__button')
+//   button.removeAttribute('disabled')
+// }
+
+// enableValidation(validationConfig);
+
