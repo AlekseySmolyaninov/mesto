@@ -1,9 +1,16 @@
 const profilePopup = document.querySelector('.popup_profile_open');
 const popupCloseButtonElement = profilePopup.querySelector('.popup__close');
 const popupOpenButtonElement = document.querySelector('.profile__button');
+const popupOverlay = document.querySelector('.popup');
+
 
 const openPopup = function (item) {     // объфвил общую функцию для открытия попап окна
   item.classList.add('popup_opened');
+  window.addEventListener('keydown', function (evt) {
+    if (evt.key === "Escape") {
+      closePopup(item);
+    }
+      })
 };
 
 const closePopup = function (item) {   // объявил общую функцию для закрытия попап окна
@@ -11,9 +18,20 @@ const closePopup = function (item) {   // объявил общую функци
 }
 
 
+
 // togglePopupVisibility();
 popupOpenButtonElement.addEventListener('click', function(){  // слушатель на кнопку редактирования профайла
   openPopup(profilePopup);
+  popupOpenButtonElement.addEventListener('keyup', function (evt) {
+if (evt.keyCode === 27) {
+  closePopup(profilePopup);
+}
+  })
+  popupOverlay.addEventListener('click', function (e) {
+    if (e.target === popupOverlay) {
+      closePopup(profilePopup);
+    }
+  })
   popupUserName.value = userName.textContent;
 popupUserJob.value = userJob.textContent;
 });
@@ -83,6 +101,8 @@ console.log(elements);
 const popupImage = document.querySelector('.popupImage');
 const imagePopup = document.querySelector('.popupImage__image'); //  здесь нахожу элемент с картинкой
   const textPopup = document.querySelector('.popupImage__text');
+  const imageContent = document.querySelector('.popupImage__content')
+  
 
 
 initialCards.forEach(function (item) {
@@ -111,7 +131,17 @@ deleteButton.addEventListener('click', function (event) {
 });
 
 image.addEventListener('click', function(){
+
   openPopup(popupImage);
+  
+  
+  popupImage.addEventListener('click', function (e) {
+    if (e.target === popupImage) {
+      closePopup(popupImage);
+    }
+  })
+ 
+
   imagePopup.src = image.src;
   imagePopup.alt = text;
   textPopup.textContent = text;
@@ -137,6 +167,17 @@ const closePopupAdd = document.querySelector('.popupAdd__close');
 
 profileButtonAdd.addEventListener('click', function(){   // слушатель на открытие попапа добавления карточки
   openPopup(openAdd);
+  profileButtonAdd.addEventListener('keyup', function (evt) {
+    if (evt.keyCode === 27) {
+      closePopup(openAdd);
+    }
+      })
+      openAdd.addEventListener('click', function (e) {
+        if (e.target === openAdd) {
+          closePopup(openAdd)
+        }
+      })
+    
 });
 closePopupAdd.addEventListener('click', function(){  // слушатель на закрытие попап добавления карточки
   closePopup(openAdd);
@@ -205,7 +246,7 @@ span.classList.add(validationConfig.errorClass)
     input.classList.remove(validationConfig.inputErrorClass)
 const span = form.querySelector(`#${input.id}-error`)
 span.textContent = ''
-span.classList.remove(validationConfig.errorClass)
+
   }
 
 const isValid = (form, input) => {
