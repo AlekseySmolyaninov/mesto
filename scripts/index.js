@@ -230,7 +230,7 @@ const validationConfig = {
   submitButtonSelector: '.popup__button',
   inactiveButtonClass: 'popup__button_invalid',
   inputErrorClass: 'popup__input_type_error',
-  errorClass: 'form__input-error'
+  errorClass: 'popup__input-error'
 };
 
 function enableValidation(validationConfig) {
@@ -238,6 +238,7 @@ function enableValidation(validationConfig) {
   const showInputError = (form, input) => {
 input.classList.add(validationConfig.inputErrorClass)
 const span = form.querySelector(`#${input.id}-error`)
+console.log(span)
 span.textContent = input.validationMessage
 span.classList.add(validationConfig.errorClass)
   }
